@@ -1,4 +1,4 @@
-package com.example.qoutes
+package com.example.quotez
 
 import android.os.Bundle
 
