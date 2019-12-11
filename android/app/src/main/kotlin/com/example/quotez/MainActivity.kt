@@ -1,4 +1,4 @@
-package com.example.quotez
+package com.OmCa.quotez
 
 import android.os.Bundle
 
