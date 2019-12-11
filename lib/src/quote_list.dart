@@ -119,7 +119,7 @@ class _QuoteListState extends State<QuoteList> {
                   //                   style: TextStyle(color: Colors.red),
                   //                 ),
                   //                 onPressed: () {
-                  //                   // TODO: Delete the item from DB etc..
+                  //                   // TODo: Delete the item from DB etc..
                   //                   setState(() {
                   //                     quotes.removeAt(index);
                   //                   });
@@ -131,7 +131,7 @@ class _QuoteListState extends State<QuoteList> {
                   //         });
                   //     return res;
                   //   } else {
-                  //     // TODO: Navigate to edit page;
+                  //     // TODo: Navigate to edit page;
                   //   }
                   // },
                 );
