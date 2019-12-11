@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quotez/models/quotes.dart';
@@ -14,7 +13,7 @@ class QuoteList extends StatefulWidget {
 class _QuoteListState extends State<QuoteList> {
   List<Quotes> quotes = const [];
   Future loadQuoteList() async {
-    String content = await rootBundle.loadString('quotes/quotes.json');
+    String content = await rootBundle.loadString('assets/quotes.json');
     List collectionQuotes = json.decode(content);
     List<Quotes> _quotes =
         collectionQuotes.map((json) => Quotes.fromJson(json)).toList();
@@ -45,13 +44,13 @@ class _QuoteListState extends State<QuoteList> {
             fontWeight: FontWeight.w700,
           ),
         ),
-        actions: <Widget>[
-          Icon(
-            Icons.format_list_bulleted,
-            size: 40.0,
-            color: Color(0xFF34495E),
-          ),
-        ],
+        // actions: <Widget>[
+        //   Icon(
+        //     Icons.format_list_bulleted,
+        //     size: 40.0,
+        //     color: Color(0xFF34495E),
+        //   ),
+        // ],
         backgroundColor: Colors.white70,
       ),
       body: Column(
