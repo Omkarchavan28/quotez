@@ -54,8 +54,7 @@ class _QuoteListState extends State<QuoteList> {
 
   Container _buildHeader(BuildContext context) {
     return Container(
-      // color: Colors.red,
-      margin: EdgeInsets.only(bottom: 5),
+      // color: Colors.lightBlueAccent,
       height: 230.0,
       child: Center(
         child: Text(
