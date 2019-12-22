@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:quotez/models/quotes.dart';
 
@@ -20,25 +18,18 @@ class _QuoteCardState extends State<QuoteCard> {
     return Container(
       margin: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 5.0),
-          shape: BoxShape.rectangle,
-          borderRadius: BorderRadius.all(
-              Radius.circular(20.0) //                 <--- border radius here
-              ),
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 25,
-              color: Colors.grey[400],
-              // offset: Offset(10, 10),
+        border: Border.all(color: Colors.white, width: 5.0),
+        shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.all(
+            Radius.circular(20.0) //                 <--- border radius here
             ),
-          ] // make rounded corner of border
-          ),
+      ),
       child: Card(
         margin: EdgeInsets.all(0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
-        color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+        color: Colors.blueAccent,
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
