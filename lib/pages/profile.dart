@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quotez/models/collections.dart';
+import 'package:quotez/models/user.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -6,19 +8,25 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  final List<Map> collections = [
-    {"title": "Liked"},
-    {"title": "Motivational"},
-    {"title": "Inspiring"},
-    {"title": "Love"},
-  ];
+  Users _user = Users(
+      name: 'Mebina Nepal',
+      bio: 'UI/UX designer | Foodie | Kathmandu',
+      posts: 302,
+      followers: 14.3,
+      following: 120,
+      collections: [
+        Collections(title: "Liked"),
+        Collections(title: "Motivational"),
+        Collections(title: "Inspiring"),
+        Collections(title: "Love"),
+      ]);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         Container(
-          height: 200.0,
+          height: 230.0,
           color: Colors.lightBlueAccent,
         ),
         ListView.builder(
@@ -88,7 +96,7 @@ class _ProfileState extends State<Profile> {
       child: ListView.builder(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: collections.length,
+        itemCount: _user.collections.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
               margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
@@ -112,7 +120,7 @@ class _ProfileState extends State<Profile> {
                   SizedBox(
                     height: 5.0,
                   ),
-                  Text(collections[index]['title'],
+                  Text(_user.collections[index].title,
                       style: Theme.of(context)
                           .textTheme
                           .subhead
@@ -126,9 +134,8 @@ class _ProfileState extends State<Profile> {
 
   Container _buildHeader(BuildContext context) {
     return Container(
-      // color: Colors.amber,
-      margin: EdgeInsets.only(top: 50.0),
-      height: 240.0,
+      margin: EdgeInsets.only(top: 30.0),
+      height: 260.0,
       child: Stack(
         children: <Widget>[
           Container(
@@ -142,18 +149,18 @@ class _ProfileState extends State<Profile> {
               child: Column(
                 children: <Widget>[
                   SizedBox(
-                    height: 50.0,
+                    height: 85.0,
                   ),
                   Text(
-                    "Mebina Nepal",
+                    _user.name,
                     style: Theme.of(context).textTheme.title,
                   ),
                   SizedBox(
                     height: 5.0,
                   ),
-                  Text("UI/UX designer | Foodie | Kathmandu"),
+                  Text(_user.bio),
                   SizedBox(
-                    height: 16.0,
+                    height: 5.0,
                   ),
                   Container(
                     height: 40.0,
@@ -163,7 +170,7 @@ class _ProfileState extends State<Profile> {
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "302",
+                              _user.posts.toString(),
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -175,7 +182,7 @@ class _ProfileState extends State<Profile> {
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "10.3K",
+                              '${_user.followers.toString()}K',
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -187,7 +194,7 @@ class _ProfileState extends State<Profile> {
                         Expanded(
                           child: ListTile(
                             title: Text(
-                              "120",
+                              _user.following.toString(),
                               textAlign: TextAlign.center,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
@@ -210,7 +217,7 @@ class _ProfileState extends State<Profile> {
                 elevation: 5.0,
                 shape: CircleBorder(),
                 child: CircleAvatar(
-                  radius: 40.0,
+                  radius: 60.0,
 
                   // backgroundImage: CachedNetworkImageProvider(avatars[0]),
                 ),
